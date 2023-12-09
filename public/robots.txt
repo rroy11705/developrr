@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: www.developrr.pro
+
+# Sitemaps
+Sitemap: www.developrr.pro/sitemap.xml
