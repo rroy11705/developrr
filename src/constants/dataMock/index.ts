@@ -1,18 +1,11 @@
+import { PostInterface } from '../../interfaces/postInterface'
+
 export const dataMockButton = {
   text: 'Any text'
 }
 
 export const dataMockErrorMessage = {
   text: 'Any text'
-}
-
-export const dataMockNowPlaying = {
-  album: 'Any album',
-  albumImageUrl: 'http://anyimageurl.com/',
-  artist: 'Any artist',
-  isPlaying: false,
-  songUrl: 'http://anysongurl.com/',
-  title: 'Any title'
 }
 
 export const dataMockPostCard = {
@@ -31,6 +24,53 @@ export const dataMockPostCardMini = {
   date: 'Any date',
   imagePath: '/image.com',
   link: 'url.com'
+}
+
+export const dataMockPosts: PostInterface[] = [
+  {
+    metadata: {
+      category: 'Tech',
+      cover: '/image.com',
+      date: '21-04-2022',
+      excerpt: 'This is a tech post',
+      id: '1',
+      link: '/posts/1',
+      slug: 'post-1',
+      time: '10 min',
+      title: 'Tech Post 1'
+    }
+  },
+  {
+    metadata: {
+      category: 'Science',
+      cover: '/image.com',
+      date: '21-04-2022',
+      excerpt: 'This is a science post',
+      id: '2',
+      link: '/posts/2',
+      slug: 'post-2',
+      time: '15 min',
+      title: 'Science Post 1'
+    }
+  },
+  {
+    metadata: {
+      category: 'Science',
+      cover: '/image.com',
+      date: '21-04-2022',
+      excerpt: 'This is another science post',
+      id: '2',
+      link: '/posts/3',
+      slug: 'post-3',
+      time: '15 min',
+      title: 'Science Post 2'
+    }
+  }
+]
+
+export const dataMockSearchInPost = {
+  text: 'Science Post',
+  result: 2
 }
 
 export const dataMockSectionDoubleTitle = {

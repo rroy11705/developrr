@@ -10,6 +10,7 @@ const SearchBar = () => {
     <Container data-testid="search-container">
       <Input
         fullWidth
+        data-testid="search-input"
         type="search"
         placeholder="Search..."
         value={search || ''}

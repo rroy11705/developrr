@@ -33,7 +33,11 @@ const Recommendations = ({ posts }) => {
             </div>
           )
         })}
-        <div className="card explore" onClick={() => router.push('/explore')}>
+        <div
+          data-testid="explore"
+          className="card explore"
+          onClick={() => router.push('/explore')}
+        >
           <MdSearch />
         </div>
       </div>

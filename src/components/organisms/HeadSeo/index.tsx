@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { Helmet } from 'react-helmet'
 import { HeadSeoProps } from './interface'
 
 const HeadSeo = ({
@@ -9,8 +9,9 @@ const HeadSeo = ({
   slug,
   canonical
 }: HeadSeoProps) => {
+  console.log('Setting title:', title) // Add this line for debugging
   return (
-    <Head>
+    <Helmet>
       <title>{title}</title>
       <meta name="author" content="Rahul Roy"></meta>
       <meta name="description" content={description}></meta>
@@ -28,7 +29,7 @@ const HeadSeo = ({
       <meta property="twitter:title" content={title}></meta>
       <meta property="twitter:description" content={description}></meta>
       <meta property="twitter:image" content={cover}></meta>
-    </Head>
+    </Helmet>
   )
 }
 

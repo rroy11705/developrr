@@ -4,7 +4,10 @@ import { Feed } from 'feed'
 const handleDate = (date: string) => {
   const splitDate = date.split('-')
   const fixedDay = parseInt(splitDate[0]) + 1
-  return `${splitDate[1]}-${fixedDay.toString()}-${splitDate[2]}`
+  const formattedDate = new Date(
+    `${splitDate[1]}-${fixedDay.toString()}-${splitDate[2]}`
+  )
+  return formattedDate.toISOString()
 }
 
 const generateRssFeed = async posts => {

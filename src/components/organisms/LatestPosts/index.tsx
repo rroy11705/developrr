@@ -6,8 +6,13 @@ import PostCardMini from '../../atoms/PostCardMini'
 import SectionDoubleTitle from '../../atoms/SectionDoubleTitle'
 
 import { Container } from './styles'
+import { PostInterface } from '../../../interfaces/postInterface'
 
-const LatestPosts = ({ posts }) => {
+type Props = {
+  posts: PostInterface[]
+}
+
+const LatestPosts = ({ posts }: Props) => {
   const { search } = useContext(SearchContext)
 
   const handleSearch = () => {

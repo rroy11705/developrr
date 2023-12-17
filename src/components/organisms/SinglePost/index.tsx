@@ -40,7 +40,9 @@ const SinglePost = ({ metadata, content }) => {
             ></div>
           </div>
           <div className="backToList">
-            <a onClick={() => router.back()}>← back to list</a>
+            <a data-testid="back-to-list" onClick={() => router.push('/')}>
+              ← back to list
+            </a>
             <div>
               <a onClick={handleCopy}>
                 <MdShare size={30} data-testid="share-icon" />
