@@ -68,6 +68,17 @@ export const dataMockPosts: PostInterface[] = [
   }
 ]
 
+export const mockHeaders = [
+  {
+    title: 'Science Post 1',
+    description: 'This is a science post',
+    keyword: 'science post',
+    cover: '/image.com',
+    slug: 'post-2',
+    canonical: '/posts/2'
+  }
+]
+
 export const dataMockSearchInPost = {
   text: 'Science Post',
   result: 2
