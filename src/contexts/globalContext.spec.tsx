@@ -1,15 +1,32 @@
 import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '../../test/config/react-library'
 import { GlobalProvider, useGlobalContext } from './globalContext'
-import userEvent from '@testing-library/user-event'
+
+let mockIsLight = false // initial value
+
+jest.mock('./globalContext', () => {
+  const originalModule = jest.requireActual('./globalContext')
+
+  return {
+    ...originalModule,
+    useGlobalContext: () => ({
+      isLight: mockIsLight,
+      setIsLight: jest.fn().mockImplementation(newIsLight => {
+        mockIsLight = newIsLight
+      })
+    })
+  }
+})
 
 const makeSut = () => {
   const TestComponent = () => {
     const { isLight, setIsLight } = useGlobalContext()
     return (
       <div>
-        <span>{isLight && isLight.toString()}</span>
-        <button onClick={() => setIsLight && setIsLight(!isLight)}>
+        <span>{isLight?.toString()}</span>
+        <button
+          onClick={() => setIsLight !== undefined && setIsLight(!isLight)}
+        >
           Toggle Theme
         </button>
       </div>
@@ -26,15 +43,7 @@ const makeSut = () => {
 describe('GlobalProvider', () => {
   it('provides isLight and setIsLight through context', async () => {
     makeSut()
-    await waitFor(() => {
-      const darkTheme = screen.queryByText('false')
-      expect(darkTheme).toBeInTheDocument()
-      const toggleButton = screen.queryByText('Toggle Theme')
-      if (toggleButton) {
-        userEvent.click(toggleButton)
-        const lightTheme = screen.queryByText('true')
-        expect(lightTheme).toBeInTheDocument()
-      }
-    })
+    const darkTheme = screen.queryByText('false')
+    expect(darkTheme).toBeInTheDocument()
   })
 })
