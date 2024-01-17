@@ -27,12 +27,11 @@ describe('MenuBottom component', () => {
     expect(menuBottom).toBeInTheDocument()
   })
 
-  it('should render by default', async () => {
+  it('should call scroll top function on button click', async () => {
     const scrollTopFn = jest.fn()
     makeSut({
       scrollTop: scrollTopFn
     })
-    makeSut()
     const topButton = screen.getAllByTestId('menu-bottom-btn')
     await userEvent.click(topButton[0])
     expect(scrollTopFn).toHaveBeenCalled()

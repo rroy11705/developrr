@@ -15,12 +15,12 @@ type ContextType = {
   setIsLight?: Dispatch<SetStateAction<boolean>>
 }
 
-const GlobalContext = createContext<ContextType>({
+export const GlobalContext = createContext<ContextType>({
   isLight: false,
   setIsLight: undefined
 })
 
-const GlobalProvider = ({ children }: Props) => {
+export const GlobalProvider = ({ children }: Props) => {
   const [isLight, setIsLight] = useState<boolean>(false)
   return (
     <GlobalContext.Provider
@@ -34,8 +34,6 @@ const GlobalProvider = ({ children }: Props) => {
   )
 }
 
-function useGlobalContext() {
+export const useGlobalContext = () => {
   return useContext(GlobalContext)
 }
-
-export { GlobalContext, GlobalProvider, useGlobalContext }
